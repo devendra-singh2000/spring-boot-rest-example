@@ -17,7 +17,7 @@ or
 ```
 * Check the stdout or boot_example.log file to make sure no exceptions are thrown
 
-Once the application runs you should see something like this
+Once the application runs you should see something like this ..hi 
 
 ```
 2017-08-29 17:31:23.091  INFO 19387 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8090 (http)
