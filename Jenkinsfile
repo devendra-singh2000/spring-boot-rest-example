@@ -52,7 +52,7 @@ pipeline {
         stage('deploy image'){
             steps{
               sshagent(['cred-ec2']) {
-                  sh "ssh -o StrictHostKeyChecking=no -l ubuntu 13.235.65.250 'docker stop \$(docker ps -a -q) && docker rm \$(docker ps -a -q) ' "
+                  //sh "ssh -o StrictHostKeyChecking=no -l ubuntu 13.235.65.250 'docker stop \$(docker ps -a -q) && docker rm \$(docker ps -a -q) ' "
                   sh "ssh -o StrictHostKeyChecking=no -l ubuntu 13.235.65.250 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 749177923916.dkr.ecr.ap-south-1.amazonaws.com && docker run -d -p 80:8090 ${reg_address}/${repo}:java_app-build-${BUILD_NUMBER}' "
                  // sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 749177923916.dkr.ecr.ap-south-1.amazonaws.com'
                   //sh 'docker rmi -f $(docker images -aq)'
